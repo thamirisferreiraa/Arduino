@@ -1,0 +1,265 @@
+//EXPERIÊNCIA 4
+ //Thamiris Ferreira e Luís Felipe
+#define ex0
+ 
+int ledPin3 = 13;
+int ledPin2 = 11;
+int ledPin1 = 10;
+int ldrPin = 0; 
+int ldrValor = 0;
+int buzzerPin = 12;
+ 
+#ifdef ex0
+ 
+void setup() {
+  pinMode(ledPin1,OUTPUT);
+  Serial.begin(9600);
+}
+ 
+void loop() {
+  ldrValor = analogRead(ldrPin);
+  Serial.println(ldrValor); 
+
+  if (ldrValor>= 500)
+    digitalWrite(ledPin1,HIGH);
+
+  else
+    digitalWrite(ledPin1,LOW);
+  delay(100);
+}
+ 
+#endif ex0
+ 
+#ifdef ex1
+ 
+void setup() {
+  pinMode(ledPin1,OUTPUT);
+  Serial.begin(9600);
+  pinMode(buzzerPin, OUTPUT);
+}
+ 
+void loop() {
+  ldrValor = analogRead(ldrPin); 
+  Serial.println(ldrValor); 
+
+  if (ldrValor>= 500)
+    {
+  digitalWrite(ledPin1,HIGH);
+    tone(buzzerPin, 2000);
+  }
+
+  else {
+  digitalWrite(ledPin1,LOW);
+    noTone(buzzerPin);
+  delay(100);
+  }
+}
+ 
+#endif ex1
+ 
+#ifdef ex2
+ 
+void setup() {
+  pinMode(ledPin1,OUTPUT);
+  Serial.begin(9600);
+  pinMode(buzzerPin, OUTPUT);
+}
+ 
+void loop() {
+  ldrValor = analogRead(ldrPin); 
+  Serial.println(ldrValor); 
+
+  if (ldrValor<= 400)
+    {
+  digitalWrite(ledPin3,HIGH);  
+    digitalWrite(ledPin1,HIGH);
+  digitalWrite(ledPin2,HIGH);
+    tone(buzzerPin, 2000);
+  }
+
+  else if (ldrValor<= 600)
+  {
+  digitalWrite(ledPin2,HIGH);
+    digitalWrite(ledPin3,LOW);
+    digitalWrite(ledPin1,HIGH);
+    noTone(buzzerPin);
+  }
+
+  else
+  {
+  digitalWrite(ledPin1,HIGH);
+    digitalWrite(ledPin2,LOW);    
+    digitalWrite(ledPin3,LOW);
+    noTone(buzzerPin);
+  }
+}
+ 
+#endif ex2
+ 
+#ifdef ex3
+ 
+void setup() {
+  pinMode(ledPin1,OUTPUT);
+  Serial.begin(9600);
+  pinMode(buzzerPin, OUTPUT);
+}
+  int sensor(){
+  ldrValor = analogRead(ldrPin); 
+  Serial.println(ldrValor); 
+    return ldrValor;
+  }
+ 
+void loop() {
+  sensor();
+ 
+  
+  if (ldrValor<= 400)
+    {
+  digitalWrite(ledPin3,HIGH);  
+    digitalWrite(ledPin1,HIGH);
+  digitalWrite(ledPin2,HIGH);
+    tone(buzzerPin, 2000);
+  }
+
+  else if (ldrValor<= 600)
+  {
+  digitalWrite(ledPin2,HIGH);
+    digitalWrite(ledPin3,LOW);
+    digitalWrite(ledPin1,HIGH);
+    noTone(buzzerPin);
+  }
+
+  else
+  {
+  digitalWrite(ledPin1,HIGH);
+    digitalWrite(ledPin2,LOW);    
+    digitalWrite(ledPin3,LOW);
+    noTone(buzzerPin);
+  }
+}
+ 
+#endif ex3
+ 
+#ifdef ex4
+ 
+void setup() {
+  pinMode(ledPin1,OUTPUT);
+  Serial.begin(9600);
+  pinMode(buzzerPin, OUTPUT);
+}
+  int sensor(){
+  ldrValor = analogRead(ldrPin); 
+  Serial.println(ldrValor); 
+    return ldrValor;
+  }
+ 
+int ledAcende(){
+
+  if (ldrValor<= 400)
+    {
+  digitalWrite(ledPin3,HIGH);  
+    digitalWrite(ledPin1,HIGH);
+  digitalWrite(ledPin2,HIGH);
+  }
+
+  else if (ldrValor<= 600)
+  {
+  digitalWrite(ledPin2,HIGH);
+    digitalWrite(ledPin3,LOW);
+    digitalWrite(ledPin1,HIGH);
+  }
+
+  else
+  {
+  digitalWrite(ledPin1,HIGH);
+    digitalWrite(ledPin2,LOW);    
+    digitalWrite(ledPin3,LOW);    
+  }
+}
+ 
+void loop() {
+  sensor();
+  ledAcende();
+
+  if (ldrValor<= 400)
+    {
+    tone(buzzerPin, 2000);
+  }
+
+  else if (ldrValor<= 600)
+  {
+    noTone(buzzerPin);
+  }
+
+  else
+  {
+    noTone(buzzerPin);
+  }
+}
+ 
+#endif ex4
+ 
+ 
+#ifdef ex5
+ 
+void setup() {
+  pinMode(ledPin1,OUTPUT);
+  Serial.begin(9600);
+  pinMode(buzzerPin, OUTPUT);
+}
+  int sensor(){
+  ldrValor = analogRead(ldrPin); 
+  Serial.println(ldrValor); 
+    return ldrValor;
+  }
+ 
+int ledAcende(){
+
+  if (ldrValor<= 400)
+    {
+  digitalWrite(ledPin3,HIGH);  
+    digitalWrite(ledPin1,HIGH);
+  digitalWrite(ledPin2,HIGH);
+  }
+
+  else if (ldrValor<= 600)
+  {
+  digitalWrite(ledPin2,HIGH);
+    digitalWrite(ledPin3,LOW);
+    digitalWrite(ledPin1,HIGH);
+  }
+
+  else
+  {
+  digitalWrite(ledPin1,HIGH);
+    digitalWrite(ledPin2,LOW);    
+    digitalWrite(ledPin3,LOW);    
+  }
+}
+ 
+int buzzerLigar(){
+ 
+  if (ldrValor<= 400)
+    {
+    tone(buzzerPin, 2000);
+  }
+
+  else if (ldrValor<= 600)
+  {
+    noTone(buzzerPin);
+  }
+
+  else
+  {
+    noTone(buzzerPin);
+  }
+}
+ 
+void loop() {
+  sensor();
+  ledAcende();
+  buzzerLigar();
+}
+ 
+#endif ex5
+

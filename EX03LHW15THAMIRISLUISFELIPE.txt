@@ -1,0 +1,451 @@
+#define ex7
+
+
+#ifdef ex0
+// Variaveis
+int buttonPin = 2; // Numero do pino do botão de pressão
+int ledPin = 13; // Numero do pino do led
+int buzzerPin = 7; // Numero do pino do buzzer
+int buttonState = 0; // Variável para leitura do estado do botão
+// Executa uma vez ao ligar ou reiniciar a placa
+void setup() {
+pinMode(ledPin, OUTPUT); //Inicializa o pino do LED como saída (OUTPUT)
+pinMode(buttonPin, INPUT); // Inicializa o pin do botão como entrada (INPUT)
+pinMode(buzzerPin, OUTPUT); //Inicializa o pin do buzzer como saÍda(OUTPUT)
+Serial.begin(9600); //Inicia porta serial e define a velocidade de transmissão
+}
+// Executa infinitamente quando liga a placa
+void loop() {
+//Lê o estado do botao (HIGH -> +5V -> botão nao press.)(LOW -> 0V botao press)
+buttonState = digitalRead(buttonPin);
+Serial.println(buttonState);
+// Testa se o botão não está pressionado
+// Se sim, o estado do botão e alto (HIGH)
+if (buttonState == HIGH) {
+digitalWrite(ledPin, LOW ); // Desliga o LED
+noTone(buzzerPin); //desliga buzzer
+}
+// Senão (Botao pressionado)
+else {
+digitalWrite(ledPin,HIGH ); // Liga o LED
+tone(buzzerPin, 2000); //liga buzzer
+}
+}
+#endif ex0
+
+
+#ifdef ex1
+int buttonPin2 = 2;
+int buttonPin = 3; // Numero do pino do botão de pressão
+int ledPin = 13; // Numero do pino do led
+int buzzerPin = 7; // Numero do pino do buzzer
+int buttonState = 0; // Variável para leitura do estado do botão
+int buttonState2 = 0;
+int ledPin2 = 12;
+
+void setup() {
+	pinMode(ledPin, OUTPUT);
+  	pinMode(buttonPin, INPUT); // Inicializa o pin do botão como entrada (INPUT)
+	pinMode(buzzerPin, OUTPUT); //Inicializa o pin do buzzer como saÍda(OUTPUT	pinMode(buttonpin2, INPUT);	
+  	pinMode(ledPin2, OUTPUT);
+  	Serial.begin(9600);
+}
+
+void loop(){
+	buttonState = digitalRead(buttonPin);
+   	Serial.println(buttonState);
+  	
+  	buttonState2 = digitalRead(buttonPin2);
+   	Serial.println(buttonState2);
+  
+  	if(buttonState == HIGH){
+      digitalWrite(ledPin, LOW);
+  		noTone(buzzerPin);
+	}else{
+  digitalWrite(ledPin, HIGH);
+  noTone(buzzerPin);
+	}
+  if(buttonState2 ==HIGH){
+    digitalWrite(ledPin2, LOW);
+    noTone(buzzerPin);
+  }else{
+    digitalWrite(ledPin2,HIGH);
+    noTone(buzzerPin);
+}
+}
+#endif ex1
+
+#ifdef ex2
+int buttonPin2 = 2;
+int buttonPin = 3; // Numero do pino do botão de pressão
+int ledPin = 13; // Numero do pino do led
+int buzzerPin = 7; // Numero do pino do buzzer
+int buttonState = 0; // Variável para leitura do estado do botão
+int buttonState2 = 0;
+int ledPin2 = 12;
+
+void setup() {
+	pinMode(ledPin, OUTPUT);
+  	pinMode(buttonPin, INPUT);
+    pinMode(buttonPin2, INPUT);
+	pinMode(buzzerPin, OUTPUT); //Inicializa o pin do buzzer como saÍda(OUTPUT	pinMode(buttonpin2, INPUT);	
+  	pinMode(ledPin2, OUTPUT);
+  
+  	Serial.begin(9600);
+}
+
+void loop(){
+buttonState = digitalRead(buttonPin);
+Serial.println(buttonState);
+  
+  	
+ if(buttonState == HIGH){
+  digitalWrite(ledPin, LOW);
+  noTone(buzzerPin);
+	}
+  	else{
+  digitalWrite(ledPin, HIGH);
+  tone(buzzerPin, 2000);
+	}
+  
+  int buttonState2 = digitalRead(buttonPin2);
+	
+  if(buttonState2 == HIGH) {
+    digitalWrite(ledPin2, LOW);
+  }
+  else{
+    digitalWrite(ledPin2, HIGH);
+} 
+}
+
+#endif ex2
+
+#ifdef ex3
+int buttonPin2 = 2;
+int buttonPin = 3; // Numero do pino do botão de pressão
+int ledPin = 13; // Numero do pino do led
+int buzzerPin = 7; // Numero do pino do buzzer
+int buttonState = 0; // Variável para leitura do estado do botão
+int buttonState2 = 0;
+int ledPin2 = 12;
+
+void setup() {
+	pinMode(ledPin, OUTPUT);
+  	pinMode(buttonPin, INPUT);
+    pinMode(buttonPin2, INPUT);
+	pinMode(buzzerPin, OUTPUT); //Inicializa o pin do buzzer como saÍda(OUTPUT	pinMode(buttonpin2, INPUT);	
+  	pinMode(ledPin2, OUTPUT);
+  
+  	Serial.begin(9600);
+}
+
+void loop(){
+buttonState = digitalRead(buttonPin);
+Serial.println(buttonState);
+  
+  	
+ if(buttonState == HIGH){
+  digitalWrite(ledPin, LOW);
+	}
+  	else{
+  digitalWrite(ledPin, HIGH);
+	}
+  
+  buttonState2 = digitalRead(buttonPin2);
+  Serial.println(buttonState2);
+	
+  if(buttonState2 == HIGH) {
+    digitalWrite(ledPin2, LOW);
+    noTone(buzzerPin);
+  }
+  else{
+    digitalWrite(ledPin2, HIGH);
+    tone(buzzerPin, 2000);
+} 
+}
+
+
+
+
+#endif ex3
+
+#ifdef ex4
+int buttonPin2 = 2;
+int buttonPin = 3; // Numero do pino do botão de pressão
+int ledPin = 13; // Numero do pino do led
+int buzzerPin = 7; // Numero do pino do buzzer
+int buttonState = 0; // Variável para leitura do estado do botão
+int buttonState2 = 0;
+int ledPin2 = 12;
+
+void setup() {
+	pinMode(ledPin, OUTPUT);
+  	pinMode(buttonPin, INPUT);
+    pinMode(buttonPin2, INPUT);
+	pinMode(buzzerPin, OUTPUT); //Inicializa o pin do buzzer como saÍda(OUTPUT	pinMode(buttonpin2, INPUT);	
+  	pinMode(ledPin2, OUTPUT);
+  
+  	Serial.begin(9600);
+}
+
+void loop(){
+	buttonState2 = digitalRead(buttonPin2);
+    Serial.println(buttonState2);
+  
+   if(buttonState2 == HIGH) {
+    digitalWrite(ledPin, LOW);
+    noTone(buzzerPin);
+    
+  }
+  else{
+    digitalWrite(ledPin, HIGH);
+    tone(buzzerPin, 2000);
+     
+} 
+  
+    buttonState = digitalRead(buttonPin); 
+  	Serial.println(buttonState);
+  
+  if(buttonState == HIGH) {
+     digitalWrite(ledPin2, LOW);
+    noTone(buzzerPin);
+  }
+  else{
+    digitalWrite(ledPin2, HIGH);
+     tone(buzzerPin, 2000);
+} 
+}
+
+
+
+#endif ex4
+
+#ifdef ex5
+
+int buttonPin2 = 2;
+int buttonPin = 3; // Numero do pino do botão de pressão
+int ledPin = 13; // Numero do pino do led
+int buzzerPin = 7; // Numero do pino do buzzer
+int buttonState = 0; // Variável para leitura do estado do botão
+int buttonState2 = 0;
+int ledPin2 = 12;
+
+void setup() {
+	pinMode(ledPin, OUTPUT);
+  	pinMode(buttonPin, INPUT);
+    pinMode(buttonPin2, INPUT);
+	pinMode(buzzerPin, OUTPUT); //Inicializa o pin do buzzer como saÍda(OUTPUT	pinMode(buttonpin2, INPUT);	
+  	pinMode(ledPin2, OUTPUT);
+  
+  	Serial.begin(9600);
+}
+
+void loop(){
+	buttonState2 = digitalRead(buttonPin2);
+    Serial.println(buttonState2);
+  
+   if(buttonState2 == HIGH) {
+    digitalWrite(ledPin, LOW);
+    noTone(buzzerPin);
+    
+  }
+  else{
+    digitalWrite(ledPin, HIGH);
+    tone(buzzerPin, 2000);
+     
+} 
+  
+    buttonState = digitalRead(buttonPin); 
+  	Serial.println(buttonState);
+  
+  if(buttonState == HIGH) {
+     digitalWrite(ledPin2, LOW);
+    noTone(buzzerPin);
+  }
+  else{
+    digitalWrite(ledPin2, HIGH);
+     tone(buzzerPin, 2000);
+} 
+  
+  
+}
+
+int readButton1() {
+  return digitalRead(buttonPin);
+}
+
+// Função para ler o estado do botão 2
+int readButton2() {
+  return digitalRead(buttonPin2);
+}
+
+
+#endif ex5
+
+#ifdef ex6
+
+
+
+int buttonPin2 = 2;
+int buttonPin = 3; // Numero do pino do botão de pressão
+int ledPin = 13; // Numero do pino do led
+int buzzerPin = 7; // Numero do pino do buzzer
+int buttonState = 0; // Variável para leitura do estado do botão
+int buttonState2 = 0;
+int ledPin2 = 12;
+
+void setup() {
+	pinMode(ledPin, OUTPUT);
+  	pinMode(buttonPin, INPUT);
+    pinMode(buttonPin2, INPUT);
+	pinMode(buzzerPin, OUTPUT); //Inicializa o pin do buzzer como saÍda(OUTPUT	pinMode(buttonpin2, INPUT);	
+  	pinMode(ledPin2, OUTPUT);
+  
+  	Serial.begin(9600);
+}
+
+void loop(){
+	buttonState2 = digitalRead(buttonPin2);
+    Serial.println(buttonState2);
+  
+   if(buttonState2 == HIGH) {
+    digitalWrite(ledPin, LOW);
+    noTone(buzzerPin);
+    
+  }
+  else{
+    digitalWrite(ledPin, HIGH);
+    tone(buzzerPin, 2000);
+     
+} 
+  
+    buttonState = digitalRead(buttonPin); 
+  	Serial.println(buttonState);
+  
+  if(buttonState == HIGH) {
+     digitalWrite(ledPin2, LOW);
+    noTone(buzzerPin);
+  }
+  else{
+    digitalWrite(ledPin2, HIGH);
+     tone(buzzerPin, 2000);
+} 
+}
+
+void controlLED(int led, int state) {
+  digitalWrite(led, state);  // Acende ou apaga o LED com base no estado
+}
+
+#endif ex6
+
+#ifdef ex7
+
+int buttonPin2 = 2;
+int buttonPin = 3; // Numero do pino do botão de pressão
+int ledPin = 13; // Numero do pino do led
+int buzzerPin = 7; // Numero do pino do buzzer
+int buttonState = 0; // Variável para leitura do estado do botão
+int buttonState2 = 0;
+int ledPin2 = 12;
+
+void setup() {
+	pinMode(ledPin, OUTPUT);
+  	pinMode(buttonPin, INPUT);
+    pinMode(buttonPin2, INPUT);
+	pinMode(buzzerPin, OUTPUT); //Inicializa o pin do buzzer como saÍda(OUTPUT	pinMode(buttonpin2, INPUT);	
+  	pinMode(ledPin2, OUTPUT);
+  
+  	Serial.begin(9600);
+}
+
+void loop(){
+	buttonState2 = digitalRead(buttonPin2);
+    Serial.println(buttonState2);
+  
+   if(buttonState2 == HIGH) {
+    digitalWrite(ledPin, LOW);
+    noTone(buzzerPin);
+    
+  }
+  else{
+    digitalWrite(ledPin, HIGH);
+    tone(buzzerPin, 2000);
+     
+} 
+  
+    buttonState = digitalRead(buttonPin); 
+  	Serial.println(buttonState);
+  
+  if(buttonState == HIGH) {
+     digitalWrite(ledPin2, LOW);
+    noTone(buzzerPin);
+  }
+  else{
+    digitalWrite(ledPin2, HIGH);
+     tone(buzzerPin, 2000);
+} 
+}
+  void controlBuzzer(int stateButton1, int stateButton2) {
+  if (stateButton2 == HIGH || stateButton1 == HIGH) {
+    tone(buzzerPin, 2000);        // Aciona o buzzer se qualquer botão estiver pressionado
+  } 
+  else {
+    noTone(buzzerPin);            // Desliga o buzzer se nenhum botão estiver pressionado
+  }
+
+  }
+
+
+
+#endif ex7 
+
+#ifdef ex8
+
+#define DO 264
+#define RE 297
+#define MI 330
+#define FA 352
+#define SOL 396
+#define LA 440
+#define SI 495
+#define D 500
+#define N 29
+
+int notas[][2] = {
+  {SOL, D/2}, {SOL, D/2}, {LA, D*2}, {SOL, D}, {DO*2, D},
+  {SI, D*3}, {SOL, D/2}, {SOL, D/2}, {LA, D*2}, {SOL, D}, {RE*2, D}, {DO*2, D},
+  {DO*2, D}, {0, D}, {MI*2, D/2}, {MI*2, D/2}, {SOL*2, D*2}, {MI*2, D},
+  {DO*2, D},
+  {SI, D}, {LA, D}, {0, D}, {FA*2, D/2}, {FA*2, D/2}, {MI*2, D*2}, {DO*2, D},
+  {RE*2, D}, {DO*2, D}, {DO*2, D*3}
+};
+
+int duracao;
+int nota;
+int buzzerPin = 7;
+int buttonPin = 3;  // Pino do botão
+bool musicPlaying = false; // Variável para controlar o estado da música
+
+void setup() {
+  pinMode(buzzerPin, OUTPUT);
+  pinMode(buttonPin, INPUT); // Configura o botão como entrada
+}
+
+void loop() {
+  // Lê o estado do botão
+  int buttonState = digitalRead(buttonPin);
+
+  // Se o botão for pressionado, começa a tocar a música
+  if (buttonState == LOW && !musicPlaying) {
+    musicPlaying = true; // Indica que a música está tocando
+    for (int i = 0; i < N; i++) {
+      nota = notas[i][0];
+      duracao = notas[i][1];
+      tone(buzzerPin, nota, duracao);
+      delay(duracao);
+    }
+    musicPlaying = false; // Reseta o estado após tocar a música
+  }
+}
+
+#endif ex8

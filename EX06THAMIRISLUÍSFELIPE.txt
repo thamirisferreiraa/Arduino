@@ -1,0 +1,397 @@
+// EXPERIÊNCIA 6
+//Thamiris Ferreira e Luís Felipe
+#define ex0
+ 
+int ledPin1 = 10;
+int ledPin2 = 11;
+int ledPin3 = 12;
+int pwmPin = A0;
+int buzzerPin = 13;
+unsigned int valorLido;
+unsigned int pwm;
+ 
+#ifdef ex0
+void setup() {
+pinMode(ledPin1, OUTPUT);
+Serial.begin(9600);
+}
+ 
+void loop() {
+valorLido = analogRead(pwmPin);
+Serial.println(valorLido);
+pwm = map(valorLido, 0, 1023, 0, 255); // Mudança de escala
+analogWrite(ledPin1,pwm);
+}
+ 
+#endif ex0
+ 
+#ifdef ex1
+ 
+void setup() {
+  pinMode(ledPin1, OUTPUT);
+  pinMode(ledPin2, OUTPUT);
+  Serial.begin(9600);
+}
+ 
+void loop() {
+  valorLido = analogRead(pwmPin);
+  Serial.println(valorLido);
+  pwm = map(valorLido, 0, 1023, 0, 255);
+  analogWrite(ledPin1, pwm); 
+  analogWrite(ledPin2, pwm);
+}
+ 
+#endif ex1
+ 
+#ifdef ex2
+ 
+void setup() {
+  pinMode(ledPin1, OUTPUT);
+  pinMode(ledPin2, OUTPUT);
+  Serial.begin(9600);
+}
+ 
+void loop() {
+  valorLido = analogRead(pwmPin);
+  Serial.println(valorLido);
+  pwm = map(valorLido, 0, 1023, 0, 255);
+  analogWrite(ledPin1, pwm);
+  analogWrite(ledPin2, 255 - pwm);
+}
+ 
+#endif ex2
+ 
+#ifdef ex3
+ 
+void setup() {
+  pinMode(ledPin1, OUTPUT);
+  pinMode(ledPin2, OUTPUT);
+  pinMode(ledPin3, OUTPUT);
+  Serial.begin(9600);
+}
+ 
+void loop() {
+  valorLido = analogRead(pwmPin);
+  Serial.println(valorLido);
+ 
+  if (valorLido < 300) {
+    analogWrite(ledPin1, map(valorLido, 0, 300, 0, 255));
+    analogWrite(ledPin2, 0);
+    analogWrite(ledPin3, 0);
+  } 
+
+  else if (valorLido < 600) {
+    analogWrite(ledPin1, 255);
+    analogWrite(ledPin2, map(valorLido, 300, 600, 0, 255));
+    analogWrite(ledPin3, 0);
+  } 
+
+  else {
+    analogWrite(ledPin1, 255);
+    analogWrite(ledPin2, 255);
+    analogWrite(ledPin3, map(valorLido, 600, 900, 0, 255));
+  }
+}
+ 
+#endif ex3
+ 
+#ifdef ex4
+ 
+void setup() {
+  pinMode(ledPin1, OUTPUT);
+  pinMode(ledPin2, OUTPUT);
+  pinMode(ledPin3, OUTPUT);
+  pinMode(buzzerPin, OUTPUT);
+  Serial.begin(9600);
+}
+ 
+void loop() {
+  valorLido = analogRead(pwmPin);
+  Serial.println(valorLido);
+ 
+  if (valorLido < 300) {
+    analogWrite(ledPin1, map(valorLido, 0, 300, 0, 255));
+    analogWrite(ledPin2, 0);
+    analogWrite(ledPin3, 0);
+    noTone(buzzerPin);
+  } 
+
+  else if (valorLido < 600) {
+    analogWrite(ledPin1, 255);
+    analogWrite(ledPin2, map(valorLido, 300, 600, 0, 255));
+    analogWrite(ledPin3, 0);
+    noTone(buzzerPin);
+  } 
+
+  else {
+    analogWrite(ledPin1, 255);
+    analogWrite(ledPin2, 255);
+    analogWrite(ledPin3, map(valorLido, 600, 900, 0, 255));
+    tone(buzzerPin, 2000);
+  }
+}
+ 
+#endif 4
+ 
+#ifdef ex5
+ 
+void setup() {
+  pinMode(ledPin1, OUTPUT);
+  pinMode(ledPin2, OUTPUT);
+  pinMode(ledPin3, OUTPUT);
+  pinMode(buzzerPin, OUTPUT);
+  Serial.begin(9600);
+}
+ 
+int lerPotenc() {
+  return analogRead(pwmPin);
+}
+ 
+void loop() {
+  int valorLido = lerPotenc();
+  Serial.println(valorLido);
+ 
+  if (valorLido < 300) {
+    analogWrite(ledPin1, map(valorLido, 0, 300, 0, 255));
+    analogWrite(ledPin2, 0);
+    analogWrite(ledPin3, 0);
+    noTone(buzzerPin);
+  } 
+
+  else if (valorLido < 600) {
+    analogWrite(ledPin1, 255);
+    analogWrite(ledPin2, map(valorLido, 300, 600, 0, 255));
+    analogWrite(ledPin3, 0);
+    noTone(buzzerPin);
+  } 
+
+  else {
+    analogWrite(ledPin1, 255);
+    analogWrite(ledPin2, 255);
+    analogWrite(ledPin3, map(valorLido, 600, 900, 0, 255));
+    tone(buzzerPin, 2000);
+  }
+}
+ 
+#endif ex5
+ 
+#ifdef ex6
+ 
+void setup() {
+  pinMode(ledPin1, OUTPUT);
+  pinMode(ledPin2, OUTPUT);
+  pinMode(ledPin3, OUTPUT);
+  pinMode(buzzerPin, OUTPUT);
+  Serial.begin(9600);
+}
+ 
+int lerPotenc() {
+  return analogRead(pwmPin);
+}
+ 
+int calcPwm(int valor, int minE, int maxE, int minS, int maxS) {
+  return map(valor, minE, maxE, minS, maxS);
+}
+ 
+void loop() {
+  int valorLido = lerPotenc();
+  Serial.println(valorLido);
+ 
+  if (valorLido < 300) {
+    analogWrite(ledPin1, calcPwm(valorLido, 0, 300, 0, 255));
+    analogWrite(ledPin2, 0);
+    analogWrite(ledPin3, 0);
+    noTone(buzzerPin);
+  } 
+
+  else if (valorLido < 600) {
+    analogWrite(ledPin1, 255);
+    analogWrite(ledPin2, calcPwm(valorLido, 300, 600, 0, 255));
+    analogWrite(ledPin3, 0);
+    noTone(buzzerPin);
+  } 
+
+  else {
+    analogWrite(ledPin1, 255);
+    analogWrite(ledPin2, 255);
+    analogWrite(ledPin3, calcPwm(valorLido, 600, 900, 0, 255));
+    tone(buzzerPin, 2000);
+  }
+}
+ 
+#endif ex6
+ 
+#ifdef ex7
+ 
+void setup() {
+  pinMode(ledPin1, OUTPUT);
+  pinMode(ledPin2, OUTPUT);
+  pinMode(ledPin3, OUTPUT);
+  pinMode(buzzerPin, OUTPUT);
+  Serial.begin(9600);
+}
+ 
+int lerPotenc() {
+  return analogRead(pwmPin);
+}
+ 
+void controlaLeds(int valorLido) {
+
+  if (valorLido < 300) {
+    analogWrite(ledPin1, calcPwm(valorLido, 0, 300, 0, 255));
+    analogWrite(ledPin2, 0);
+    analogWrite(ledPin3, 0);
+  } 
+
+  else if (valorLido < 600) {
+    analogWrite(ledPin1, 255);
+    analogWrite(ledPin2, calcPwm(valorLido, 300, 600, 0, 255));
+    analogWrite(ledPin3, 0);
+  } 
+
+  else {
+    analogWrite(ledPin1, 255);
+    analogWrite(ledPin2, 255);
+    analogWrite(ledPin3, calcPwm(valorLido, 600, 900, 0, 255));
+  }
+}
+ 
+int calcPwm(int valor, int minE, int maxE, int minS, int maxS) {
+  return map(valor, minE, maxE, minS, maxS);
+}
+ 
+void loop() {
+  int valorLido = lerPotenc();
+  Serial.println(valorLido);
+ 
+  controlaLeds(valorLido);
+ 
+  if (valorLido < 900) {
+    noTone(buzzerPin);
+  } 
+
+  else {
+    tone(buzzerPin, 2000);
+  }
+}
+ 
+#endif ex7
+ 
+#ifdef ex8
+ 
+void setup() {
+  pinMode(ledPin1, OUTPUT);
+  pinMode(ledPin2, OUTPUT);
+  pinMode(ledPin3, OUTPUT);
+  pinMode(buzzerPin, OUTPUT);
+  Serial.begin(9600);
+}
+ 
+int lerPotenc() {
+  return analogRead(pwmPin);
+}
+ 
+void controlaLeds(int valorLido) {
+
+  if (valorLido < 300) {
+    analogWrite(ledPin1, calcPwm(valorLido, 0, 300, 0, 255));
+    analogWrite(ledPin2, 0);
+    analogWrite(ledPin3, 0);
+  } 
+
+  else if (valorLido < 600) {
+    analogWrite(ledPin1, 255);
+    analogWrite(ledPin2, calcPwm(valorLido, 300, 600, 0, 255));
+    analogWrite(ledPin3, 0);
+  } 
+
+  else {
+    analogWrite(ledPin1, 255);
+    analogWrite(ledPin2, 255);
+    analogWrite(ledPin3, calcPwm(valorLido, 600, 900, 0, 255));
+  }
+}
+ 
+int calcPwm(int valor, int minE, int maxE, int minS, int maxS) {
+  return map(valor, minE, maxE, minS, maxS);
+}
+ 
+void buzzer(int valorLido) {
+
+  if (valorLido < 900) {
+    noTone(buzzerPin);
+  } 
+
+  else {
+    tone(buzzerPin, 2000);
+  }
+}
+ 
+void loop() {
+  int valorLido = lerPotenc();
+  Serial.println(valorLido);
+  buzzer(valorLido);
+  controlaLeds(valorLido);
+}
+ 
+#endif ex8
+ 
+#ifdef ex9
+ 
+void setup() {
+  pinMode(ledPin1, OUTPUT);
+  pinMode(ledPin2, OUTPUT);
+  pinMode(ledPin3, OUTPUT);
+  pinMode(buzzerPin, OUTPUT);
+  Serial.begin(9600);
+}
+ 
+int lerPotenc() {
+  return analogRead(pwmPin);
+}
+ 
+void escLed(int valorLido) {
+
+  if (valorLido < 300) {
+    analogWrite(ledPin1, calcPwm(valorLido, 0, 300, 0, 255));
+    analogWrite(ledPin2, 0);
+    analogWrite(ledPin3, 0);
+  } 
+
+  else if (valorLido < 600) {
+    analogWrite(ledPin1, 255);
+    analogWrite(ledPin2, calcPwm(valorLido, 300, 600, 0, 255));
+    analogWrite(ledPin3, 0);
+  } 
+
+  else {
+    analogWrite(ledPin1, 255);
+    analogWrite(ledPin2, 255);
+    analogWrite(ledPin3, calcPwm(valorLido, 600, 900, 0, 255));
+  }
+}
+ 
+int calcPwm(int valor, int minE, int maxE, int minS, int maxS) {
+  return map(valor, minE, maxE, minS, maxS);
+}
+ 
+void buzzer(int valorLido) {
+
+  if (valorLido < 900) {
+    noTone(buzzerPin);
+  } 
+
+  else {
+    tone(buzzerPin, 2000);
+  }
+}
+ 
+void loop() {
+  int valorLido = lerPotenc();
+  Serial.println(valorLido);
+  buzzer(valorLido);
+  escLed(valorLido);
+}
+ 
+#endif ex9
+

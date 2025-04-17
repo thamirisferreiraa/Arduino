@@ -1,0 +1,290 @@
+//EXPERIÊNCIA 5
+ //Thamiris Ferreira e Luís Felipe
+#define ex0
+ 
+int LM35 = A0; 
+float temperatura; 
+int ledPin1 = 10; 
+int ledPin2 = 12; 
+int ledPin3 = 13; 
+int buzzerPin = 11;
+ 
+#ifdef ex0
+ 
+void setup() { 
+pinMode(ledPin,OUTPUT); 
+Serial.begin(9600);
+}
+ 
+void loop() { 
+temperatura = (float(((((analogRead(LM35)*5.0)/1023)*1000)-500)/10)); 
+Serial.print("Temperatura: "); 
+Serial.println(temperatura); 
+
+  if (temperatura >= 27) 
+digitalWrite(ledPin,HIGH); 
+
+  else 
+digitalWrite(ledPin,LOW); 
+}
+ 
+#endif ex0
+ 
+#ifdef ex1
+ 
+void setup() { 
+pinMode(ledPin1,OUTPUT); 
+pinMode(buzzerPin, OUTPUT);  
+Serial.begin(9600);
+}
+ 
+void loop() { 
+temperatura = (float(((((analogRead(LM35)*5.0)/1023)*1000)-500)/10)); 
+Serial.print("Temperatura: "); 
+Serial.println(temperatura); 
+
+  if (temperatura >= 60) {
+digitalWrite(ledPin1,HIGH); 
+  tone (buzzerPin,2000);
+  }
+
+  else {
+digitalWrite(ledPin1,LOW);
+  noTone (buzzerPin);
+  } 
+}
+ 
+#endif ex1
+ 
+#ifdef ex2
+ 
+void setup() { 
+  pinMode(ledPin1, OUTPUT); 
+  pinMode(ledPin2, OUTPUT); 
+  pinMode(ledPin3, OUTPUT); 
+  pinMode(buzzerPin, OUTPUT); 
+  Serial.begin(9600);
+}
+ 
+void loop() { 
+  temperatura = (((analogRead(LM35) * 5.0) / 1023) * 100) - 50; 
+  Serial.print("Temperatura: "); 
+  Serial.println(temperatura);
+ 
+  if (temperatura >= 20 && temperatura <60) {
+    digitalWrite(ledPin1, HIGH); 
+    digitalWrite(ledPin2, LOW); 
+    digitalWrite(ledPin3, LOW); 
+    noTone(buzzerPin);
+  } 
+
+  else if (temperatura >= 60 && temperatura <80) {
+    digitalWrite(ledPin1, HIGH); 
+    digitalWrite(ledPin2, HIGH); 
+    digitalWrite(ledPin3, LOW); 
+    noTone(buzzerPin);
+  } 
+
+  else if (temperatura >= 80) {
+    digitalWrite(ledPin1, HIGH); 
+    digitalWrite(ledPin2, HIGH); 
+    digitalWrite(ledPin3, HIGH); 
+    tone(buzzerPin,2000);
+  } 
+
+  else {
+    digitalWrite(ledPin1, LOW); 
+    digitalWrite(ledPin2, LOW); 
+    digitalWrite(ledPin3, LOW); 
+    noTone(buzzerPin);
+  }
+}
+ 
+#endif ex2
+ 
+#ifdef ex3
+ 
+void setup() { 
+  pinMode(ledPin1, OUTPUT); 
+  pinMode(ledPin2, OUTPUT); 
+  pinMode(ledPin3, OUTPUT); 
+  pinMode(buzzerPin, OUTPUT); 
+  Serial.begin(9600);
+}
+ 
+int temp() {
+  temperatura = (((analogRead(LM35) * 5.0) / 1023) * 100) - 50; 
+  Serial.print("Temperatura: "); 
+  Serial.println(temperatura);
+}
+ 
+void loop() { 
+  temp();
+ 
+  if (temperatura >= 20 && temperatura <60) {
+    digitalWrite(ledPin1, HIGH); 
+    digitalWrite(ledPin2, LOW); 
+    digitalWrite(ledPin3, LOW); 
+    noTone(buzzerPin);
+  } 
+
+  else if (temperatura >= 60 && temperatura <80) {
+    digitalWrite(ledPin1, HIGH); 
+    digitalWrite(ledPin2, HIGH); 
+    digitalWrite(ledPin3, LOW); 
+    noTone(buzzerPin);
+  } 
+
+  else if (temperatura >= 80) {
+    digitalWrite(ledPin1, HIGH); 
+    digitalWrite(ledPin2, HIGH); 
+    digitalWrite(ledPin3, HIGH); 
+    tone(buzzerPin,2000);
+  } 
+
+  else {
+    digitalWrite(ledPin1, LOW); 
+    digitalWrite(ledPin2, LOW); 
+    digitalWrite(ledPin3, LOW); 
+    noTone(buzzerPin);
+  }
+}
+ 
+#endif ex3
+ 
+#ifdef ex4
+ 
+void setup() { 
+  pinMode(ledPin1, OUTPUT); 
+  pinMode(ledPin2, OUTPUT); 
+  pinMode(ledPin3, OUTPUT); 
+  pinMode(buzzerPin, OUTPUT); 
+  Serial.begin(9600);
+}
+ 
+int temp() {
+  temperatura = (((analogRead(LM35) * 5.0) / 1023) * 100) - 50; 
+  Serial.print("Temperatura: "); 
+  Serial.println(temperatura);
+}
+ 
+int leds(){
+
+  if (temperatura >= 20 && temperatura <60) {
+    digitalWrite(ledPin1, HIGH); 
+    digitalWrite(ledPin2, LOW); 
+    digitalWrite(ledPin3, LOW); 
+  } 
+
+  else if (temperatura >= 60 && temperatura <80) {
+    digitalWrite(ledPin1, HIGH); 
+    digitalWrite(ledPin2, HIGH); 
+    digitalWrite(ledPin3, LOW); 
+  } 
+
+  else if (temperatura >= 80) {
+    digitalWrite(ledPin1, HIGH); 
+    digitalWrite(ledPin2, HIGH); 
+    digitalWrite(ledPin3, HIGH); 
+  } 
+
+  else {
+    digitalWrite(ledPin1, LOW); 
+    digitalWrite(ledPin2, LOW); 
+    digitalWrite(ledPin3, LOW); 
+  }
+}
+ 
+void loop() { 
+  temp();
+  leds();
+ 
+  if (temperatura >= 20 && temperatura <60) {
+    noTone(buzzerPin);
+  } 
+
+  else if (temperatura >= 60 && temperatura <80) { 
+    noTone(buzzerPin);
+  } 
+
+  else if (temperatura >= 80) {
+    tone(buzzerPin,2000);
+  } 
+
+  else {
+    noTone(buzzerPin);
+  }
+}
+ 
+#endif ex4
+ 
+#ifdef ex5
+ 
+void setup() { 
+  pinMode(ledPin1, OUTPUT); 
+  pinMode(ledPin2, OUTPUT); 
+  pinMode(ledPin3, OUTPUT); 
+  pinMode(buzzerPin, OUTPUT); 
+  Serial.begin(9600);
+}
+ 
+int temp() {
+  temperatura = (((analogRead(LM35) * 5.0) / 1023) * 100) - 50; 
+  Serial.print("Temperatura: "); 
+  Serial.println(temperatura);
+}
+ 
+int leds(){
+
+  if (temperatura >= 20 && temperatura <60) {
+    digitalWrite(ledPin1, HIGH); 
+    digitalWrite(ledPin2, LOW); 
+    digitalWrite(ledPin3, LOW); 
+  } 
+
+  else if (temperatura >= 60 && temperatura <80) {
+    digitalWrite(ledPin1, HIGH); 
+    digitalWrite(ledPin2, HIGH); 
+    digitalWrite(ledPin3, LOW); 
+  } 
+
+  else if (temperatura >= 80) {
+    digitalWrite(ledPin1, HIGH); 
+    digitalWrite(ledPin2, HIGH); 
+    digitalWrite(ledPin3, HIGH); 
+  } 
+
+  else {
+    digitalWrite(ledPin1, LOW); 
+    digitalWrite(ledPin2, LOW); 
+    digitalWrite(ledPin3, LOW); 
+  }
+}
+ 
+int buzzer(){
+
+  if (temperatura >= 20 && temperatura <60) {
+    noTone(buzzerPin);
+  } 
+
+  else if (temperatura >= 60 && temperatura <80) { 
+    noTone(buzzerPin);
+  } 
+
+  else if (temperatura >= 80) {
+    tone(buzzerPin,2000);
+  } 
+
+  else {
+    noTone(buzzerPin);
+  }
+}
+ 
+void loop() { 
+  temp();
+  leds();
+  buzzer();
+}
+ 
+#endif ex5
+

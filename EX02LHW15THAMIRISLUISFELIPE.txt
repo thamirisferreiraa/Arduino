@@ -1,0 +1,493 @@
+#define ex6
+
+#ifdef ex0
+int pino8 = 8; //verde 1
+int pino9 = 9; //amarelo 1
+int pino10 = 10; //vermelho 1
+int pino11 = 11; //verde 2
+int pino12 = 12; //amarelo 2
+int pino13 = 13; //verde 2
+void setup() {
+ pinMode(pino8, OUTPUT);
+ pinMode(pino9, OUTPUT);
+ pinMode(pino10, OUTPUT);
+ pinMode(pino11, OUTPUT);
+ pinMode(pino12, OUTPUT);
+ pinMode(pino13, OUTPUT);
+}
+void loop() {
+ digitalWrite(pino8,HIGH); //liga verde 1
+ digitalWrite(pino9,HIGH); //liga amarelo 1
+ digitalWrite(pino10,HIGH); //liga vermelho 1
+ digitalWrite(pino11,HIGH); //liga verde 2
+ digitalWrite(pino12,HIGH); //liga amarelo 2
+ digitalWrite(pino13,HIGH); //liga vermelho 2
+
+ delay(1000); //tempo de 1 seg.
+
+ digitalWrite(pino8,LOW); //desliga verde 1
+ digitalWrite(pino9,LOW); //desliga amarelo 1
+ digitalWrite(pino10,LOW); //desliga vermelho 1
+ digitalWrite(pino11,LOW); //desliga verde 2
+ digitalWrite(pino12,LOW); //desliga amarelo 2
+ digitalWrite(pino13,LOW); //desliga vermelho
+
+ delay(1000); //tempo de 1 seg.
+
+} 
+#endif ex0
+
+#ifdef ex1
+
+int pino8 = 8;  // verde 1
+int pino9 = 9;  // amarelo 1
+int pino10 = 10; // vermelho 1
+int pino11 = 11; // verde 2
+int pino12 = 12; // amarelo 2
+int pino13 = 13; // vermelho 2
+
+void setup(){
+  pinMode(pino8, OUTPUT);
+  pinMode(pino9, OUTPUT);
+  pinMode(pino10, OUTPUT);
+  pinMode(pino11, OUTPUT);
+  pinMode(pino12, OUTPUT);
+  pinMode(pino13, OUTPUT);
+}
+
+void loop() {
+  digitalWrite(pino8, HIGH);   // liga verde 1
+  digitalWrite(pino11, HIGH);   // liga verde 2
+  delay(1000);  // tempo de 1 seg.
+  digitalWrite(pino8, LOW);   // desliga verde 1
+  digitalWrite(pino11, LOW);   // desliga verde 2
+  delay(1000);  // tempo de 1 seg.
+
+  digitalWrite(pino9, HIGH);    // liga amarelo 1
+  digitalWrite(pino12, HIGH);    // liga amarelo 2
+  delay(1000);  // tempo de 1 seg.
+  digitalWrite(pino9, LOW);    // desliga amarelo 1
+  digitalWrite(pino12, LOW);    // desliga amarelo 2
+  delay(1000);  // tempo de 1 seg.
+  
+  digitalWrite(pino10, HIGH);   // liga vermelho 1
+  digitalWrite(pino13, HIGH);    // liga vermelho 2
+  delay(1000);  // tempo de 1 seg.
+  digitalWrite(pino10, LOW);   // liga vermelho 1
+  digitalWrite(pino13, LOW);    // liga vermelho 2
+  delay(1000);
+}
+#endif ex1
+
+#ifdef ex2
+int ledVerde1 = 8;   // LED verde do grupo 1
+int ledAmarelo1 = 9; // LED amarelo do grupo 1
+int ledVermelho1 = 10; // LED vermelho do grupo 1
+int ledVerde2 = 11;  // LED verde do grupo 2
+int ledAmarelo2 = 12; // LED amarelo do grupo 2
+int ledVermelho2 = 13; // LED vermelho do grupo 2
+
+void setup() {
+  // Define os pinos como saídas
+  pinMode(ledVerde1, OUTPUT);
+  pinMode(ledAmarelo1, OUTPUT);
+  pinMode(ledVermelho1, OUTPUT);
+  pinMode(ledVerde2, OUTPUT);
+  pinMode(ledAmarelo2, OUTPUT);
+  pinMode(ledVermelho2, OUTPUT);
+}
+
+void loop() {
+  // Fase 1: Grupo 1 verde
+  digitalWrite(ledVerde1, HIGH); // Acende o LED verde do grupo 1
+  digitalWrite(ledVermelho2, HIGH); // Acende o LED vermelho do grupo 2
+  delay(3000); // Espera 3 segundos
+  
+  // Fase 2: Grupo 1 amarelo
+  digitalWrite(ledVerde1, LOW); // Desliga o LED verde do grupo 1
+  digitalWrite(ledAmarelo1, HIGH); // Acende o LED amarelo do grupo 1
+  delay(1000); // Espera 1 segundo
+  digitalWrite(ledAmarelo1, LOW); // Desliga o LED amarelo do grupo 1
+  
+  // Fase 3: Grupo 2 vermelho
+  digitalWrite(ledVermelho2, LOW); // Desliga o LED vermelho do grupo 2
+
+  // Fase 4: Grupo 2 verde
+  digitalWrite(ledVerde2, HIGH); // Acende o LED verde do grupo 2
+  digitalWrite(ledVermelho1, HIGH); // Acende o LED vermelho do grupo 1
+  delay(3000); // Espera 3 segundos
+  
+  // Fase 5: Grupo 2 amarelo
+  digitalWrite(ledVerde2, LOW); // Desliga o LED verde do grupo 2
+  digitalWrite(ledAmarelo2, HIGH); // Acende o LED amarelo do grupo 2
+  delay(1000); // Espera 1 segundo
+  digitalWrite(ledAmarelo2, LOW); // Desliga o LED amarelo do grupo 2
+  
+  // Fase 6: Grupo 1 vermelho
+  digitalWrite(ledVermelho1, LOW); // Desliga o LED vermelho do grupo 1
+}
+#endif ex2
+
+#ifdef ex3
+int ledVerde1 = 8;   // LED verde do grupo 1
+int ledAmarelo1 = 9; // LED amarelo do grupo 1
+int ledVermelho1 = 10; // LED vermelho do grupo 1
+int ledVerde2 = 11;  // LED verde do grupo 2
+int ledAmarelo2 = 12; // LED amarelo do grupo 2
+int ledVermelho2 = 13; // LED vermelho do grupo 2
+
+void setup() {
+  // Define os pinos como saídas
+  pinMode(ledVerde1, OUTPUT);
+  pinMode(ledAmarelo1, OUTPUT);
+  pinMode(ledVermelho1, OUTPUT);
+  pinMode(ledVerde2, OUTPUT);
+  pinMode(ledAmarelo2, OUTPUT);
+  pinMode(ledVermelho2, OUTPUT);
+}
+
+void loop() {
+  // Fase 1: Grupo 1 verde
+  digitalWrite(ledVerde1, HIGH); // Acende o LED verde do grupo 1
+  digitalWrite(ledVermelho2, HIGH); // Acende o LED vermelho do grupo 2
+  delay(4000); // Espera 3 segundos
+  
+  // Fase 2: Grupo 1 amarelo
+  digitalWrite(ledVerde1, LOW); // Desliga o LED verde do grupo 1
+  digitalWrite(ledAmarelo1, HIGH); // Acende o LED amarelo do grupo 1
+  delay(1000); // Espera 1 segundo
+  digitalWrite(ledAmarelo1, LOW); // Desliga o LED amarelo do grupo 1
+  
+  // Fase 3: Grupo 2 vermelho
+  digitalWrite(ledVermelho2, LOW); // Desliga o LED vermelho do grupo 2
+
+  // Fase 4: Grupo 2 verde
+  digitalWrite(ledVerde2, HIGH); // Acende o LED verde do grupo 2
+  digitalWrite(ledVermelho1, HIGH); // Acende o LED vermelho do grupo 1
+  delay(2000); // Espera 3 segundos
+  
+  // Fase 5: Grupo 2 amarelo
+  digitalWrite(ledVerde2, LOW); // Desliga o LED verde do grupo 2
+  digitalWrite(ledAmarelo2, HIGH); // Acende o LED amarelo do grupo 2
+  delay(1000); // Espera 1 segundo
+  digitalWrite(ledAmarelo2, LOW); // Desliga o LED amarelo do grupo 2
+  
+  // Fase 6: Grupo 1 vermelho
+  digitalWrite(ledVermelho1, LOW); // Desliga o LED vermelho do grupo 1
+}
+#endif ex3
+
+
+#ifdef ex4
+// Definição dos LEDs e botão
+int ledVerde1 = 8;   // LED verde do grupo 1 (Carros)
+int ledAmarelo1 = 9; // LED amarelo do grupo 1 (Carros)
+int ledVermelho1 = 10; // LED vermelho do grupo 1 (Carros)
+int ledVerde2 = 11;  // LED verde do grupo 2 (Pedestres)
+int ledAmarelo2 = 12; // LED amarelo do grupo 2 (Pedestres)
+int ledVermelho2 = 13; // LED vermelho do grupo 2 (Pedestres)
+int botao = 7; // Botão dos pedestres
+
+bool botaoPressionado = false;
+unsigned long tempoAnterior = 0;
+
+
+void setup() {
+  // Define os pinos como saídas
+  pinMode(ledVerde1, OUTPUT);
+  pinMode(ledAmarelo1, OUTPUT);
+  pinMode(ledVermelho1, OUTPUT);
+  pinMode(ledVerde2, OUTPUT);
+  pinMode(ledAmarelo2, OUTPUT);
+  pinMode(ledVermelho2, OUTPUT);
+  pinMode(botao, INPUT_PULLUP); // Resistor de pull-up interno
+  Serial.begin(9600); // Inicializa a comunicação serial
+
+  // Inicia com os carros podendo passar (verde para carros, vermelho para pedestres)
+  digitalWrite(ledVerde1, HIGH); // Verde para carros
+  digitalWrite(ledVermelho2, HIGH); // Vermelho para pedestres
+}
+
+void loop(){
+  // Verifica se o botão foi pressionado
+  if(digitalRead(botao) == LOW && !botaoPressionado){
+    botaoPressionado = true;
+    trocaParaPedestres(); // Chama a função para dar prioridade aos pedestres
+  }
+  
+  // Se o botão não foi pressionado, segue o ciclo normal dos carros
+  if(!botaoPressionado){
+    cicloNormal();
+  }
+}
+
+// Função para lidar com o ciclo normal dos semáforos (carros e pedestres)
+void cicloNormal(){
+  unsigned long tempoAtual = millis();
+  
+  // Mantém os carros com verde por 4 segundos e depois troca para amarelo
+  if(tempoAtual - tempoAnterior >= 4000){
+    // Transição para amarelo dos carros
+    digitalWrite(ledVerde1, LOW); // Desliga verde dos carros
+    digitalWrite(ledAmarelo1, HIGH); // Liga amarelo dos carros
+    delay(1000); // Espera 1 segundo com amarelo
+
+    // Transição para vermelho dos carros e verde dos pedestres
+    digitalWrite(ledAmarelo1, LOW); // Desliga amarelo dos carros
+    digitalWrite(ledVermelho1, HIGH); // Liga vermelho dos carros
+    digitalWrite(ledVermelho2, LOW); // Desliga vermelho dos pedestres
+    digitalWrite(ledVerde2, HIGH); // Liga verde para pedestres
+    delay(4000); // Espera o tempo do ciclo
+
+    // Volta para o ciclo normal de carros
+    digitalWrite(ledVerde2, LOW); // Desliga verde dos pedestres
+    digitalWrite(ledVermelho2, HIGH); // Liga vermelho dos pedestres
+    digitalWrite(ledVermelho1, LOW); // Desliga vermelho dos carros
+    digitalWrite(ledVerde1, HIGH); // Liga verde dos carros
+    tempoAnterior = millis(); // Reseta o tempo para o ciclo
+  }
+}
+
+// Função que dá prioridade aos pedestres
+void trocaParaPedestres(){
+  // Transição para vermelho dos carros e verde dos pedestres
+  digitalWrite(ledVerde1, LOW); // Desliga verde dos carros
+  digitalWrite(ledVermelho1, HIGH); // Liga vermelho dos carros
+  digitalWrite(ledVermelho2, LOW); // Desliga vermelho dos pedestres
+  digitalWrite(ledVerde2, HIGH); // Liga verde para pedestres
+  delay(5000); // Tempo para os pedestres atravessarem
+
+  // Transição para amarelo dos pedestres
+  digitalWrite(ledVerde2, LOW); // Desliga verde dos pedestres
+  digitalWrite(ledAmarelo2, HIGH); // Liga amarelo dos pedestres
+  delay(1000); // 1 segundo com amarelo
+
+  // Volta para o ciclo normal de carros
+  digitalWrite(ledAmarelo2, LOW); // Desliga amarelo dos pedestres
+  digitalWrite(ledVermelho2, HIGH); // Liga vermelho dos pedestres
+  digitalWrite(ledVermelho1, LOW); // Desliga vermelho dos carros
+  digitalWrite(ledVerde1, HIGH); // Liga verde para os carros
+  
+  botaoPressionado = false; // Reseta o estado do botão
+  tempoAnterior = millis(); // Reseta o tempo para o ciclo
+}
+
+#endif ex4
+
+#ifdef ex5
+
+// Definição dos LEDs e botão
+int ledVerde1 = 8;   // LED verde do grupo 1 (Carros)
+int ledAmarelo1 = 9; // LED amarelo do grupo 1 (Carros)
+int ledVermelho1 = 10; // LED vermelho do grupo 1 (Carros)
+int ledVerde2 = 11;  // LED verde do grupo 2 (Pedestres)
+int ledAmarelo2 = 12; // LED amarelo do grupo 2 (Pedestres)
+int ledVermelho2 = 13; // LED vermelho do grupo 2 (Pedestres)
+int botao = 7; // Botão dos pedestres
+int buzzer = 6;
+
+bool botaoPressionado = false;
+unsigned long tempoAnterior = 0;
+
+
+void setup() {
+  // Define os pinos como saídas
+  pinMode(ledVerde1, OUTPUT);
+  pinMode(ledAmarelo1, OUTPUT);
+  pinMode(ledVermelho1, OUTPUT);
+  pinMode(ledVerde2, OUTPUT);
+  pinMode(ledAmarelo2, OUTPUT);
+  pinMode(ledVermelho2, OUTPUT);
+  pinMode(botao, INPUT_PULLUP); // Resistor de pull-up interno
+  pinMode(buzzer, OUTPUT);
+  Serial.begin(9600); // Inicializa a comunicação serial
+
+  // Inicia com os carros podendo passar (verde para carros, vermelho para pedestres)
+  digitalWrite(ledVerde1, HIGH); // Verde para carros
+  digitalWrite(ledVermelho2, HIGH); // Vermelho para pedestres
+}
+
+void loop(){
+  // Verifica se o botão foi pressionado
+  if(digitalRead(botao) == LOW && !botaoPressionado){
+    botaoPressionado = true;
+    trocaParaPedestres(); // Chama a função para dar prioridade aos pedestres
+  }
+  
+  // Se o botão não foi pressionado, segue o ciclo normal dos carros
+  if(!botaoPressionado){
+    cicloNormal();
+  }
+}
+
+// Função para lidar com o ciclo normal dos semáforos (carros e pedestres)
+void cicloNormal(){
+  unsigned long tempoAtual = millis();
+  
+  // Mantém os carros com verde por 4 segundos e depois troca para amarelo
+  if(tempoAtual - tempoAnterior >= 4000){
+    
+    noTone(buzzer);
+    // Transição para amarelo dos carros
+    digitalWrite(ledVerde1, LOW); // Desliga verde dos carros
+    digitalWrite(ledAmarelo1, HIGH); // Liga amarelo dos carros
+    delay(1000); // Espera 1 segundo com amarelo
+
+    // Transição para vermelho dos carros e verde dos pedestres
+    digitalWrite(ledAmarelo1, LOW); // Desliga amarelo dos carros
+    digitalWrite(ledVermelho1, HIGH); // Liga vermelho dos carros
+    digitalWrite(ledVermelho2, LOW); // Desliga vermelho dos pedestres
+    digitalWrite(ledVerde2, HIGH); // Liga verde para pedestres
+    delay(4000); // Espera o tempo do ciclo
+
+    // Volta para o ciclo normal de carros
+    digitalWrite(ledVerde2, LOW); // Desliga verde dos pedestres
+    digitalWrite(ledVermelho2, HIGH); // Liga vermelho dos pedestres
+    digitalWrite(ledVermelho1, LOW); // Desliga vermelho dos carros
+    digitalWrite(ledVerde1, HIGH); // Liga verde dos carros
+    tempoAnterior = millis(); // Reseta o tempo para o ciclo
+  }
+}
+
+// Função que dá prioridade aos pedestres
+void trocaParaPedestres(){
+  
+  tone(buzzer,2000);
+  delay(100); //mantem som ligado por 100ms
+  noTone(buzzer);
+
+ 
+  // Transição para vermelho dos carros e verde dos pedestres
+  digitalWrite(ledVerde1, LOW); // Desliga verde dos carros
+  digitalWrite(ledVermelho1, HIGH); // Liga vermelho dos carros
+  digitalWrite(ledVermelho2, LOW); // Desliga vermelho dos pedestres
+  digitalWrite(ledVerde2, HIGH); // Liga verde para pedestres
+  delay(5000); // Tempo para os pedestres atravessarem
+	
+  // Transição para amarelo dos pedestres
+  digitalWrite(ledVerde2, LOW); // Desliga verde dos pedestres
+  digitalWrite(ledAmarelo2, HIGH); // Liga amarelo dos pedestres
+  delay(1000); // 1 segundo com amarelo
+
+  // Volta para o ciclo normal de carros
+  digitalWrite(ledAmarelo2, LOW); // Desliga amarelo dos pedestres
+  digitalWrite(ledVermelho2, HIGH); // Liga vermelho dos pedestres
+  digitalWrite(ledVermelho1, LOW); // Desliga vermelho dos carros
+  digitalWrite(ledVerde1, HIGH); // Liga verde para os carros
+  
+  noTone(buzzer);
+  botaoPressionado = false; // Reseta o estado do botão
+  tempoAnterior = millis(); // Reseta o tempo para o ciclo
+}
+
+#endif ex5
+
+#ifdef ex6
+// Definição dos LEDs e botão
+int ledVerde1 = 8;   // LED verde do grupo 1 (Carros)
+int ledAmarelo1 = 9; // LED amarelo do grupo 1 (Carros)
+int ledVermelho1 = 10; // LED vermelho do grupo 1 (Carros)
+int ledVerde2 = 11;  // LED verde do grupo 2 (Pedestres)
+int ledAmarelo2 = 12; // LED amarelo do grupo 2 (Pedestres)
+int ledVermelho2 = 13; // LED vermelho do grupo 2 (Pedestres)
+int botao = 7; // Botão dos pedestres
+int buzzer = 6;
+
+bool botaoPressionado = false;
+unsigned long tempoAnterior = 0;
+
+
+void setup() {
+  // Define os pinos como saídas
+  pinMode(ledVerde1, OUTPUT);
+  pinMode(ledAmarelo1, OUTPUT);
+  pinMode(ledVermelho1, OUTPUT);
+  pinMode(ledVerde2, OUTPUT);
+  pinMode(ledAmarelo2, OUTPUT);
+  pinMode(ledVermelho2, OUTPUT);
+  pinMode(botao, INPUT_PULLUP); // Resistor de pull-up interno
+  pinMode(buzzer, OUTPUT);
+  Serial.begin(9600); // Inicializa a comunicação serial
+
+  // Inicia com os carros podendo passar (verde para carros, vermelho para pedestres)
+  digitalWrite(ledVerde1, HIGH); // Verde para carros
+  digitalWrite(ledVermelho2, HIGH); // Vermelho para pedestres
+}
+
+void loop(){
+  // Verifica se o botão foi pressionado
+  if(digitalRead(botao) == LOW && !botaoPressionado){
+    botaoPressionado = true;
+    trocaParaPedestres(); // Chama a função para dar prioridade aos pedestres
+  }
+  
+  // Se o botão não foi pressionado, segue o ciclo normal dos carros
+  if(!botaoPressionado){
+    cicloNormal();
+  }
+}
+
+// Função para lidar com o ciclo normal dos semáforos (carros e pedestres)
+void cicloNormal(){
+  unsigned long tempoAtual = millis();
+  
+  // Mantém os carros com verde por 4 segundos e depois troca para amarelo
+  if(tempoAtual - tempoAnterior >= 4000){
+    
+    noTone(buzzer);
+    // Transição para amarelo dos carros
+    digitalWrite(ledVerde1, LOW); // Desliga verde dos carros
+    digitalWrite(ledAmarelo1, HIGH); // Liga amarelo dos carros
+    delay(1000); // Espera 1 segundo com amarelo
+
+    // Transição para vermelho dos carros e verde dos pedestres
+    digitalWrite(ledAmarelo1, LOW); // Desliga amarelo dos carros
+    digitalWrite(ledVermelho1, HIGH); // Liga vermelho dos carros
+    digitalWrite(ledVermelho2, LOW); // Desliga vermelho dos pedestres
+    digitalWrite(ledVerde2, HIGH); // Liga verde para pedestres
+    delay(4000); // Espera o tempo do ciclo
+
+    // Volta para o ciclo normal de carros
+    digitalWrite(ledVerde2, LOW); // Desliga verde dos pedestres
+    digitalWrite(ledVermelho2, HIGH); // Liga vermelho dos pedestres
+    digitalWrite(ledVermelho1, LOW); // Desliga vermelho dos carros
+    digitalWrite(ledVerde1, HIGH); // Liga verde dos carros
+    tempoAnterior = millis(); // Reseta o tempo para o ciclo
+  }
+}
+
+// Função que dá prioridade aos pedestres
+void trocaParaPedestres(){
+  
+  apitarBuzzer();
+
+ 
+  // Transição para vermelho dos carros e verde dos pedestres
+  digitalWrite(ledVerde1, LOW); // Desliga verde dos carros
+  digitalWrite(ledVermelho1, HIGH); // Liga vermelho dos carros
+  digitalWrite(ledVermelho2, LOW); // Desliga vermelho dos pedestres
+  digitalWrite(ledVerde2, HIGH); // Liga verde para pedestres
+  delay(5000); // Tempo para os pedestres atravessarem
+	
+  // Transição para amarelo dos pedestres
+  digitalWrite(ledVerde2, LOW); // Desliga verde dos pedestres
+  digitalWrite(ledAmarelo2, HIGH); // Liga amarelo dos pedestres
+  delay(1000); // 1 segundo com amarelo
+
+  // Volta para o ciclo normal de carros
+  digitalWrite(ledAmarelo2, LOW); // Desliga amarelo dos pedestres
+  digitalWrite(ledVermelho2, HIGH); // Liga vermelho dos pedestres
+  digitalWrite(ledVermelho1, LOW); // Desliga vermelho dos carros
+  digitalWrite(ledVerde1, HIGH); // Liga verde para os carros
+  
+  noTone(buzzer);
+  botaoPressionado = false; // Reseta o estado do botão
+  tempoAnterior = millis(); // Reseta o tempo para o ciclo
+}
+
+void apitarBuzzer(){
+  tone(buzzer,2000);
+  delay(100); //mantem som ligado por 100ms
+  noTone(buzzer);
+}
+#endif ex6

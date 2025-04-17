@@ -1,0 +1,163 @@
+#define ex7
+
+
+#ifdef ex0
+// Pisca um led, de um em um segundo
+// Exim LED conectado no pino 13 da maioria dos Arduinos
+// Daremos um nome a este pino:
+int led = 13;
+// Esta função "setup" roda uma vez quando a placa e ligada ou resetada
+void setup() {
+// Configura o pino do led (digital) como saída
+pinMode(led, OUTPUT);
+}
+// Função que se repete infinitamente quando a placa é ligada
+void loop() {
+digitalWrite(led, HIGH);// Liga o LED (HIGH = nível lógico alto)
+delay(1000); // Espera um segundo
+digitalWrite(led, LOW); // Desliga o LED (LOW = nível lógico baixo)
+delay(1000); // Espera um segundo
+}
+#endif ex0
+
+#ifdef ex1
+
+int led = 13;
+
+void setup() {
+
+pinMode(led, OUTPUT);
+}
+
+void loop() {
+digitalWrite(led, HIGH);
+delay(4000); 
+digitalWrite(led, LOW); 
+delay(4000); 
+}
+
+#endif ex1
+
+
+#ifdef ex2
+int led = 13;
+void setup(){
+  pinMode(led, OUTPUT);
+}
+void loop() {
+  digitalWrite(led, HIGH);
+  delay(2000);
+  digitalWrite(led, LOW);
+  delay(4000);
+ 
+}
+
+
+#endif ex2
+
+#ifdef ex3
+int led =13;
+void setup(){
+  pinMode(led, OUTPUT);
+}
+void loop(){
+  digitalWrite(led, HIGH);
+  delay(2000);
+    digitalWrite(led, LOW);
+  delay(4000);
+    digitalWrite(led, HIGH);
+  delay(3000);
+    digitalWrite(led, LOW);
+  delay(5000);
+}
+
+
+
+#endif ex3
+
+#ifdef ex4
+int led  =12;
+int led1 =13;
+
+void setup(){
+  pinMode(led, OUTPUT);
+  pinMode(led1, OUTPUT);
+}
+void loop(){
+  digitalWrite(led, HIGH);
+    digitalWrite(led1, HIGH);
+    digitalWrite(led, LOW);
+  delay(1000);
+    digitalWrite(led1, LOW);
+  delay(1000);
+
+}
+#endif ex4
+
+#ifdef ex5
+int led  =12;
+int ledplaca =13;
+  
+  void setup(){
+  pinMode(led, OUTPUT);
+  pinMode(ledplaca, OUTPUT);
+}
+void loop(){
+  digitalWrite(ledplaca, HIGH);
+  delay(2000);
+  digitalWrite(ledplaca, LOW);
+  delay(2000);
+    digitalWrite(led, HIGH);
+  delay(3000);
+    digitalWrite(led, LOW);
+  delay(3000);
+  
+}
+
+
+
+#endif ex5
+
+#ifdef ex6
+int led  =12;
+int ledplaca =13;
+  
+  void setup(){
+  pinMode(led, OUTPUT);
+  pinMode(ledplaca, OUTPUT);
+}
+void loop(){
+  digitalWrite(led, HIGH);
+  delay(3000);
+  digitalWrite(led, LOW);
+  delay(5000);
+    digitalWrite(ledplaca, HIGH);
+  delay(2500);
+    digitalWrite(ledplaca, LOW);
+  delay(4500);
+  
+}
+#endif ex6
+
+#ifdef ex7
+int led =12;
+int ledplaca = 13;
+
+void setup(){
+  pinMode(led, OUTPUT);
+  pinMode(ledplaca, OUTPUT);
+}
+
+void loop (){
+  digitalWrite(led, HIGH);
+  delay(1000);
+  digitalWrite(led, LOW);
+   digitalWrite(ledplaca, HIGH);
+    delay(1000);
+  digitalWrite(ledplaca, LOW);
+}
+
+
+
+
+#endif ex7
